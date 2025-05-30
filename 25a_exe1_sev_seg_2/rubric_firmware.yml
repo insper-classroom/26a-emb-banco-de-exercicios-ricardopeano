@@ -1,0 +1,11 @@
+forbiten:
+  - names:
+    - gpio_get
+    error_text: Você não deve fazer pooling no pino, deve utilizar IRS ler os pinos.
+
+shall_have:
+  - names:
+      - hardware_init
+      - display
+      - gpio_callback
+    error_text: O seu código deve necessariamente implementar e usar essas funcoes

@@ -1,0 +1,410 @@
+name: exe1-2
+author: Rafael Corsi
+version: 1
+
+steps:
+  - delay: 100ms
+
+
+#################################
+# 0
+#################################
+  - set-control:
+      part-id: sw1
+      control: value
+      value: 1  
+  - delay: 100ms    
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 1  
+  - delay: 10ms  
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 0
+  - delay: 50ms  
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A1
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A2
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A3
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A4
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A5
+      value: 0
+
+#################################
+# 0
+#################################
+  - set-control:
+      part-id: sw1
+      control: value
+      value: 0
+  - delay: 10ms    
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A1
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A2
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A3
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A4
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A5
+      value: 0
+
+#################################
+# 1
+#################################
+  - set-control:
+      part-id: sw1
+      control: value
+      value: 0
+  - delay: 10ms    
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 1  
+  - delay: 10ms  
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 0
+  - delay: 50ms  
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A1
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A2
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A3
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A4
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A5
+      value: 0
+
+#################################
+# 2
+#################################
+  - set-control:
+      part-id: sw1
+      control: value
+      value: 0
+  - delay: 10ms    
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 1  
+  - delay: 10ms  
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 0
+  - delay: 50ms  
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A1
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A2
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A3
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A4
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A5
+      value: 0
+
+#################################
+# 3
+#################################
+  - set-control:
+      part-id: sw1
+      control: value
+      value: 0  
+  - delay: 10ms    
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 1  
+  - delay: 10ms  
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 0
+  - delay: 50ms  
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A1
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A2
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A3
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A4
+      value: 0
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A5
+      value: 0
+
+#################################
+# 4
+#################################
+  - set-control:
+      part-id: sw1
+      control: value
+      value: 0  
+  - delay: 10ms    
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 1
+  - delay: 10ms  
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 0
+  - delay: 50ms  
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A1
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A2
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A3
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A4
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A5
+      value: 0
+
+#################################
+# 5
+#################################
+  - set-control:
+      part-id: sw1
+      control: value
+      value: 0  
+  - delay: 10ms    
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 1  
+  - delay: 10ms  
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 0
+  - delay: 50ms  
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A1
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A2
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A3
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A4
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A5
+      value: 1
+
+#################################
+# 5
+#################################
+  - set-control:
+      part-id: sw1
+      control: value
+      value: 0  
+  - delay: 10ms    
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 1  
+  - delay: 10ms  
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 0
+  - delay: 50ms  
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A1
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A2
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A3
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A4
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A5
+      value: 1
+
+
+#################################
+# 4
+#################################
+  - set-control:
+      part-id: sw1
+      control: value
+      value: 1  
+  - delay: 10ms    
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 1  
+  - delay: 10ms  
+
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 0
+  - delay: 50ms  
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A1
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A2
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A3
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A4
+      value: 1
+
+  - expect-pin:
+      part-id: bargraph1
+      pin: A5
+      value: 0
