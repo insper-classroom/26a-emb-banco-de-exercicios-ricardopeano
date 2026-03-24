@@ -15,7 +15,6 @@ const int LED_PIN_R = 13;
 volatile int btn_f = 0;
 volatile int g_timer_g = 0;
 volatile int g_timer_y = 0;
-volatile int g_timer_r = 0;
 volatile int g_fired_g = 0;
 volatile int g_fired_y = 0;
 
