@@ -40,12 +40,12 @@ int64_t alarm_callback_y(alarm_id_t id, void *user_data) {
     return 0;
 }
 
-bool timer_callback_g(struct repeating_timer_t *rt) {
+bool timer_callback_g(repeating_timer_t *rt) {
     timer_g = 1;
     return true; 
 }
 
-bool timer_callback_y(struct repeating_timer_t *rt) {
+bool timer_callback_y(repeating_timer_t *rt) {
     timer_y = 1;
     return true; 
 }
