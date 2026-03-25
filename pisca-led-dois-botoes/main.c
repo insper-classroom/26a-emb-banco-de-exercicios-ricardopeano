@@ -101,14 +101,14 @@ int main() {
         if (flag_btn_g && !alarm_g_ativado) {
             flag_btn_g = 0;
             alarm_id_g = add_alarm_in_ms(1000, alarm_callback_g, NULL, false);
-            add_repeating_timer_ms(100, timer_callback_g, NULL, &start_timer_g);
+            add_repeating_timer_ms(200, timer_callback_g, NULL, &start_timer_g);
             alarm_g_ativado = 1;
         } 
 
         if (flag_btn_y && !alarm_y_ativado) {
             flag_btn_y = 0;
             alarm_id_y = add_alarm_in_ms(2000, alarm_callback_y, NULL, false);
-            add_repeating_timer_ms(250, timer_callback_y, NULL, &start_timer_y);
+            add_repeating_timer_ms(500, timer_callback_y, NULL, &start_timer_y);
             alarm_y_ativado = 1;
         } 
 
