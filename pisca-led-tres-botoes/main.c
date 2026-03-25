@@ -18,9 +18,7 @@ volatile int flag_rise_btn_g = 0;
 
 void btn_callback(uint gpio, uint32_t events) {
     if (events == 0x4) {  // fall edge
-        if (gpio == BTN_PIN_B) {
-            flag_btn_b = !flag_btn_b;
-        } else if (gpio == BTN_PIN_Y) {
+        if (gpio == BTN_PIN_Y) {
             flag_btn_y = !flag_btn_y;
         } else if (gpio == BTN_PIN_G) {
             flag_fall_btn_g = 1;
@@ -28,15 +26,16 @@ void btn_callback(uint gpio, uint32_t events) {
     } else if (events == 0x8) {  // rise edge
         if (gpio == BTN_PIN_G) {
             flag_rise_btn_g = 1;
-        }
-    }
+        } else if (gpio == BTN_PIN_B) {
+            flag_btn_b = !flag_btn_b;
+        } 
 }
 
 void setup() {
     gpio_init(BTN_PIN_B);
     gpio_set_dir(BTN_PIN_B, GPIO_IN);
     gpio_pull_up(BTN_PIN_B);
-    gpio_set_irq_enabled_with_callback(BTN_PIN_B, GPIO_IRQ_EDGE_FALL, true, &btn_callback);
+    gpio_set_irq_enabled_with_callback(BTN_PIN_B, GPIO_IRQ_EDGE_RISE, true, &btn_callback);
 
     gpio_init(BTN_PIN_Y);
     gpio_set_dir(BTN_PIN_Y, GPIO_IN);
@@ -73,10 +72,14 @@ int main() {
 
     if (flag_btn_b) {
         gpio_put(LED_PIN_B, led_state);
+    } else {
+      gpio_put(LED_PIN_B, 0);  // garante apagado
     }
 
     if (flag_btn_y) {
         gpio_put(LED_PIN_Y, led_state);
+    } else {
+      gpio_put(LED_PIN_Y, 0);  // garante apagado
     }
 
     if (flag_fall_btn_g && !flag_rise_btn_g) {
