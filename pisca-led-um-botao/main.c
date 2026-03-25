@@ -14,8 +14,8 @@ volatile int flag_btn = 0;
 
 volatile int alarm_flag = 0;
 
-volatile int timer_flag_b = 0;
-volatile int timer_flag_y = 0;
+volatile int timer_flag_b = 1;
+volatile int timer_flag_y = 1;
 
 void btn_callback(uint gpio, uint32_t events) {
     if (events == 0x4) {  // fall edge
@@ -30,12 +30,12 @@ int64_t alarm_callback(alarm_id_t id, void *user_data) {
     return 0;
 }
 
-bool timer_callback_b(struct repeating_timer_t *rt) {
+bool timer_callback_b(repeating_timer_t *rt) {
     timer_flag_b = 1;
     return true; 
 }
 
-bool timer_callback_y(struct repeating_timer_t *rt) {
+bool timer_callback_y(repeating_timer_t *rt) {
     timer_flag_y = 1;
     return true; 
 }
@@ -57,8 +57,46 @@ int main() {
     stdio_init_all();
     setup();
 
-    while (true) {
-    
+    alarm_id_t alarm_id = 0;
 
+    repeating_timer_t start_timer_b;
+    repeating_timer_t start_timer_y;
+
+    int led_state_b = 0;
+    int led_state_y = 0;
+
+    int alarme_ativado = 0;
+
+    while (true) {
+
+        if (flag_btn) {
+            flag_btn = 0;
+            alarm_id = add_alarm_in_ms(5000, alarm_callback, NULL, false);
+            add_repeating_timer_ms(500, timer_callback_y, NULL, &start_timer_y);
+            add_repeating_timer_ms(150, timer_callback_b, NULL, &start_timer_b);
+            alarme_ativado = 1;
+        }
+
+        if (alarme_ativado && timer_flag_b) {
+            timer_flag_b = 0;
+            led_state_b = !led_state_b;
+            gpio_put(LED_PIN_B, led_state_b);
+        }
+
+        if (alarme_ativado && timer_flag_y) {
+            timer_flag_y = 0;
+            led_state_y = !led_state_y;
+            gpio_put(LED_PIN_Y, led_state_y);
+        }
+
+        if (alarm_flag) {
+            alarm_flag = 0;
+            cancel_alarm(alarm_id);
+            cancel_repeating_timer(&start_timer_b);
+            cancel_repeating_timer(&start_timer_y);
+            gpio_put(LED_PIN_B, 0);
+            gpio_put(LED_PIN_Y, 0);
+            alarme_ativado = 0;
+        }
     }
 }

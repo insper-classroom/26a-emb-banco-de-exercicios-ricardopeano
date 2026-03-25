@@ -29,7 +29,8 @@ void btn_callback(uint gpio, uint32_t events) {
         } else if (gpio == BTN_PIN_B) {
             flag_btn_b = !flag_btn_b;
         } 
-}
+    }
+}    
 
 void setup() {
     gpio_init(BTN_PIN_B);
